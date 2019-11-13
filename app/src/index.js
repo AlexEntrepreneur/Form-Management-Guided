@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <TestingForms />
-      {/* <StudentForm /> */}
-      {/* <NotesContainer /> */}
+      {/* <StudentForm />
+      <NotesContainer /> */}
     </>
   );
 }
