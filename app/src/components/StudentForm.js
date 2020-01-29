@@ -5,6 +5,11 @@ export default function StudentForm() {
     <div className="StudentForm">
       <h1>Lambda Student Form</h1>
       {/* Add your form elements here */}
+      {/* first name */}
+      {/* last name */}
+      {/* username */}
+      {/* password */}
+      {/* rememberpassword */}
     </div>
   );
 }
