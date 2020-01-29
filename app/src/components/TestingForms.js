@@ -10,16 +10,18 @@ export default function TestingForms() {
 
   function changeHandler(e) {
     // console.log(e.target.name);
-    if (e.target.type === 'checkbox') {
-      setTestingForms({
-        ...testingForm,
-        [e.target.name]: e.target.checked
-      });
-    } else {
-      setTestingForms({
-        ...testingForm,
-        [e.target.name]: e.target.value
-      });
+    if (e.target.value.length < 10) {
+      if (e.target.type === 'checkbox') {
+        setTestingForms({
+          ...testingForm,
+          [e.target.name]: e.target.checked
+        });
+      } else {
+        setTestingForms({
+          ...testingForm,
+          [e.target.name]: e.target.value
+        });
+      }
     }
   }
   
@@ -33,6 +35,7 @@ export default function TestingForms() {
           name="username"
           placeholder="Enter your username here"
           onChange={changeHandler}
+          value={testingForm.username}
         />
         <label htmlFor="testform_password">Password</label>
         <input
@@ -41,20 +44,22 @@ export default function TestingForms() {
           name="password"
           placeholder="Enter your password here"
           onChange={changeHandler}
+          value={testingForm.password}
         />
         <label htmlFor="testform_remember_pass">Remember password?</label>
         <input
           type="checkbox"
           id="testform_remember_pass"
-          value="true"
           name="remember_pass"
           onChange={changeHandler}
+          checked={testingForm.remember_pass}
         />
         <label htmlFor="testform_account_type">Select An Account Type: </label>
         <select
           name="account_type"
           id="testform_account_type"
           onChange={changeHandler}
+          value={testingForm.account_type}
         >
           <option value="">Select an option</option>
           <option value="gold">Gold Account</option>
