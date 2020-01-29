@@ -27,7 +27,14 @@ export default function TestingForms() {
 
   function submitHandler(e) {
     e.preventDefault();
+
+    //To see the values on our event object we can persist it
+    e.persist();
+    console.log(e);
+
     console.log(testingForm);
+
+    // Clearing the values in our form inputs
     const initialState = {
       username: '',
       password: '',
