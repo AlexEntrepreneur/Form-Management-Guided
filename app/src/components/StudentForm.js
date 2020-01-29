@@ -24,10 +24,24 @@ export default function StudentForm() {
       }
     }
   }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    console.log(studentForm);
+    const initialState = {
+      firstName: "",
+      lastName: "",
+      username: "",
+      password: "",
+      remember_pass: false
+    }
+    setStudentForm(initialState);
+  }
+
   return (
     <div className="StudentForm">
       <h1>Lambda Student Form</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="student_firstName">First Name</label>
         <input
           type="text"
