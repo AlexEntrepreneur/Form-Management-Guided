@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function TestingForms() {
+  const [testingForm, setTestingForms] = useState({
+    username: '',
+    password: '',
+    remember_pass: false,
+    account_type: ''
+  });
+
+  function changeHandler(e) {
+    // console.log(e.target.name);
+    if (e.target.type === 'checkbox') {
+      setTestingForms({
+        ...testingForm,
+        [e.target.name]: e.target.checked
+      });
+    } else {
+      setTestingForms({
+        ...testingForm,
+        [e.target.name]: e.target.value
+      });
+    }
+  }
+  
   return (
     <div className="TestingForms">
       <form>
@@ -10,7 +32,7 @@ export default function TestingForms() {
           id="testform_username"
           name="username"
           placeholder="Enter your username here"
-          onChange={e => console.log(e.target.value)}
+          onChange={changeHandler}
         />
         <label htmlFor="testform_password">Password</label>
         <input
@@ -18,7 +40,7 @@ export default function TestingForms() {
           id="testform_password"
           name="password"
           placeholder="Enter your password here"
-          onChange={e => console.log(e.target.value)}
+          onChange={changeHandler}
         />
         <label htmlFor="testform_remember_pass">Remember password?</label>
         <input
@@ -26,13 +48,13 @@ export default function TestingForms() {
           id="testform_remember_pass"
           value="true"
           name="remember_pass"
-          onChange={e => console.log(e.target.checked)}
+          onChange={changeHandler}
         />
         <label htmlFor="testform_account_type">Select An Account Type: </label>
         <select
           name="account_type"
           id="testform_account_type"
-          onChange={e => console.log(e.target.value)}
+          onChange={changeHandler}
         >
           <option value="">Select an option</option>
           <option value="gold">Gold Account</option>
