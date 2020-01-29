@@ -72,6 +72,7 @@ export default function StudentForm() {
           onChange={changeHandler}
           checked={studentForm.remember_pass}
         />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

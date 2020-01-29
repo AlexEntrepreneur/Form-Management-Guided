@@ -24,10 +24,22 @@ export default function TestingForms() {
       }
     }
   }
+
+  function submitHandler(e) {
+    e.preventDefault();
+    console.log(testingForm);
+    const initialState = {
+      username: '',
+      password: '',
+      remember_pass: false,
+      account_type: ''
+    }
+    setTestingForms(initialState);
+  }
   
   return (
     <div className="TestingForms">
-      <form>
+      <form onSubmit={submitHandler}>
         <label htmlFor="testform_username">Username</label>
         <input
           type="text"
@@ -66,6 +78,7 @@ export default function TestingForms() {
           <option value="slvr">Silver Account</option>
           <option value="brnz">Bronze Account</option>
         </select>
+        <button type="sybmit">Submit</button>
       </form>
     </div>
   );
