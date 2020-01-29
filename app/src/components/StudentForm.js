@@ -10,16 +10,18 @@ export default function StudentForm() {
   });
   function changeHandler(e) {
     // console.log(e.target.name);
-    if (e.target.type === "checkbox") {
-      setStudentForm({
-        ...studentForm,
-        [e.target.name]: e.target.checked
-      });
-    } else {
-      setStudentForm({
-        ...studentForm,
-        [e.target.name]: e.target.value
-      });
+    if(e.target.value === e.target.value.toLowerCase()){
+      if (e.target.type === "checkbox") {
+        setStudentForm({
+          ...studentForm,
+          [e.target.name]: e.target.checked
+        });
+      } else {
+        setStudentForm({
+          ...studentForm,
+          [e.target.name]: e.target.value
+        });
+      }
     }
   }
   return (
@@ -33,6 +35,7 @@ export default function StudentForm() {
           name="firstName"
           placeholder="Enter your first name here"
           onChange={changeHandler}
+          value={studentForm.firstName}
         />
         <label htmlFor="student_lastName">Last Name</label>
         <input
@@ -41,6 +44,7 @@ export default function StudentForm() {
           name="lastName"
           placeholder="Enter your last name here"
           onChange={changeHandler}
+          value={studentForm.lastName}
         />
         <label htmlFor="student_username">Username</label>
         <input
@@ -49,6 +53,7 @@ export default function StudentForm() {
           name="username"
           placeholder="Enter your username here"
           onChange={changeHandler}
+          value={studentForm.username}
         />
         <label htmlFor="student_password">Password</label>
         <input
@@ -57,6 +62,7 @@ export default function StudentForm() {
           name="password"
           placeholder="Enter your password here"
           onChange={changeHandler}
+          value={studentForm.password}
         />
         <label htmlFor="student_remember_pass">Remember password?</label>
         <input
@@ -64,6 +70,7 @@ export default function StudentForm() {
           id="student_remember_pass"
           name="remember_pass"
           onChange={changeHandler}
+          checked={studentForm.remember_pass}
         />
       </form>
     </div>
