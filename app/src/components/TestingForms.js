@@ -34,6 +34,7 @@ export default function TestingForms() {
           id="testform_account_type"
           onChange={e => console.log(e.target.value)}
         >
+          <option value="">Select an option</option>
           <option value="gold">Gold Account</option>
           <option value="slvr">Silver Account</option>
           <option value="brnz">Bronze Account</option>
